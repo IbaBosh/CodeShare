@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: uno-arena
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: unzip -o UNO-Arena-project.zip -d . && cd uno-arena && npm install && npm test && npm run check
+    startCommand: cd uno-arena && npm start
+    healthCheckPath: /health
+    autoDeployTrigger: commit
